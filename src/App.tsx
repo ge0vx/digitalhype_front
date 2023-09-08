@@ -8,11 +8,11 @@ interface FormDataInterface {
 
 const inputs = [
   {
-    errorMessage: "Cipher should be 6-60 alphanumeric characteres and shouldn't include any special character",
+    errorMessage: "Cipher should be 5-50 alphanumeric characteres and shouldn't include any special character",
     id:1,
     label: "Cipher",
     name: "cipher",
-    pattern: "^[A-Za-z0-9]{6,60}$",
+    pattern: "^[A-Za-z0-9]{5,50}$",
     placeholder: "Cipher",
     required: true,
     type:"text",
@@ -34,7 +34,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="app">
       <form onSubmit={hanldeSubmit}>
         {inputs.map((input)=>(
           <FormInput key={input.id} value={values[input.name as keyof FormDataInterface]} onChange={onChange} {...input}/>
