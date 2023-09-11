@@ -5,14 +5,14 @@ export type HTTPmethods = "POST" | "GET";
 export const UseFetch = <T>(
   body?: any
 ): [
-    T | T[],
+    any,
     boolean,
     boolean,
     string,
     (url: string, method: HTTPmethods) => Promise<void>
   ] => {
 
-  const [data, setData] = useState<T | T[]>([]);
+  const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('')
@@ -34,7 +34,7 @@ export const UseFetch = <T>(
             });
             break;
         }
-        let d: T | T[] = await response.json();
+        let d: any = await response.json();
         setData(d);
 
       } catch (error) {
