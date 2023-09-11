@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./FormInput.css"
 
 const FormInput = (props: any) => {
-    const {label, onChange, inputProps, errorMessage, required, pattern } = props;
+    const {label, onChange, inputProps, errorMessage, required, pattern, name } = props;
     const [focused, setFocused] = useState(false);
 
     const handleFocus = () => {
@@ -13,6 +13,7 @@ const FormInput = (props: any) => {
         <div className="formInput">
             <label>{label}</label>
             <input 
+                name={name}
                 {...inputProps}
                 onChange={onChange}
                 required={required}
