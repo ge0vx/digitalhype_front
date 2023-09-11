@@ -21,3 +21,8 @@ form{
     margin-top: 15px;
     margin-bottom: 30px;
   }
+
+  p{
+    text-align: center;
+    color: red;
+  }

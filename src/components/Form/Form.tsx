@@ -17,12 +17,8 @@ export default function Form({ inputs }: { inputs: any }) {
     
 
     const [body, setBody] = useState({});
-    const [data, loading, error, fetchResourse] = UseApiPost(body);
+    const [data, loading, error, errorMessage, fetchResourse] = UseApiPost(body);
     console.log(data, loading, error);
-
-    if(error){
-        console.log(error)
-    }
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValues({ ...values, [e.target.name]: e.target.value });
@@ -51,6 +47,7 @@ export default function Form({ inputs }: { inputs: any }) {
                 />
             ))}
             <button>Submit</button>
+            {error && <p>{ errorMessage }</p>}
         </form>
     );
 }
