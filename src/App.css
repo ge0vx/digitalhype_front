@@ -5,3 +5,9 @@
   height: 100vh;
   background-color: crimson;
 }
+
+.sign{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
