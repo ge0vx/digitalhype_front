@@ -3,7 +3,7 @@ import { CypherContext } from '../../contexts/CypherContext';
 import { CypherContextType } from '../../contexts/types';
 import FormInput from '../FormInput/FormInput';
 import {postCypherCodeAPI } from '../../config/constants'
-import { UseApiPost } from '../../hooks/useApiPost';
+import { UseFetch } from '../../hooks/useFetch';
 import './Form.css';
 
 interface FormDataInterface {
@@ -17,7 +17,7 @@ export default function Form({ inputs }: { inputs: any }) {
     
 
     const [body, setBody] = useState({});
-    const [data, loading, error, errorMessage, fetchResourse] = UseApiPost(body);
+    const [data, loading, error, errorMessage, fetchResourse] = UseFetch(body);
     console.log(data, loading, error);
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

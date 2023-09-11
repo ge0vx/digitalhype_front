@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export type HTTPmethods = "POST" | "GET";
 
-export const UseApiPost = <T>(
+export const UseFetch = <T>(
   body?: any
 ): [
     T | T[],
@@ -45,7 +45,7 @@ export const UseApiPost = <T>(
         }
         // we'll proceed, but let's report it
         console.error(message)
-        setErrorMessage(`${message}. correct your cipher code`)
+        setErrorMessage(`${message}. correct your cipher code syntax`)
         
 
       } finally {
