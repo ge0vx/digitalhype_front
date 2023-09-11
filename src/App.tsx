@@ -1,10 +1,7 @@
-import React, {useState} from 'react';
-import FormInput from './components/FormInput'
+import React from 'react';
 import './App.css';
-
-interface FormDataInterface {
-  cipher: string;
-}
+import Form from './components/Form';
+import CypherContextProvider from './contexts/CypherContext';
 
 const inputs = [
   {
@@ -20,28 +17,12 @@ const inputs = [
 ]
 
 function App() {
-
-  const [values, setValues] =useState<FormDataInterface>({
-    cipher: ""
-  })
-
-  const hanldeSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  }
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValues({...values, [e.target.name]: e.target.value})
-  }
-
   return (
-    <div className="app">
-      <form onSubmit={hanldeSubmit}>
-        {inputs.map((input)=>(
-          <FormInput key={input.id} value={values[input.name as keyof FormDataInterface]} onChange={onChange} {...input}/>
-        ))}
-        <button>Submit</button>
-      </form>
-    </div>
+    <CypherContextProvider>
+      <div className="app">
+        <Form inputs={inputs} />
+      </div>
+    </CypherContextProvider>
   );
 }
 
